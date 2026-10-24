@@ -1,0 +1,37 @@
+[
+  {
+    "id": "database-down",
+    "exceptionText": "org.springframework.dao.DataAccessResourceFailureException: Failed to obtain JDBC Connection\nCaused by: java.net.ConnectException: Connection refused: localhost:5432",
+    "expectedCategory": "DEPENDENCY",
+    "expectedKnownMatch": "DataAccessResourceFailureException",
+    "requiredCheck": "database"
+  },
+  {
+    "id": "bad-config",
+    "exceptionText": "org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'server.port' to java.lang.Integer",
+    "expectedCategory": "CONFIG",
+    "expectedKnownMatch": "BindException",
+    "requiredCheck": "application.yml"
+  },
+  {
+    "id": "missing-bean",
+    "exceptionText": "org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController'\nCaused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'PaymentClient'",
+    "expectedCategory": "CODE",
+    "expectedKnownMatch": "UnsatisfiedDependencyException",
+    "requiredCheck": "bean"
+  },
+  {
+    "id": "bad-json",
+    "exceptionText": "org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('<' (code 60))",
+    "expectedCategory": "DATA",
+    "expectedKnownMatch": "HttpMessageNotReadableException",
+    "requiredCheck": "body"
+  },
+  {
+    "id": "unknown",
+    "exceptionText": "java.lang.IllegalStateException: widget flux exceeded for tenant acme",
+    "expectedCategory": "UNKNOWN",
+    "expectedKnownMatch": "",
+    "requiredCheck": "stack trace"
+  }
+]
